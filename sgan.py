@@ -47,7 +47,7 @@ class SGAN(object):
         '''
         self.config = Config
         if name is not None:
-            print "loading parameters from file:",name
+            print("loading parameters from file:",name)
 
             vals =joblib.load(name)
             
@@ -94,7 +94,7 @@ class SGAN(object):
 
 
     def save(self,name):
-        print "saving SGAN parameters in file: ", name
+        print("saving SGAN parameters in file: ", name)
         vals = {}
         vals["config"] = self.config
         vals["dis_W"] = [p.get_value() for p in self.dis_W]
@@ -288,7 +288,7 @@ if __name__=="__main__":
                 cost = sgan.train_d(samples,Znp)
                 Dcost.append(cost)
 
-        print "Gcost=", np.mean(Gcost), "  Dcost=", np.mean(Dcost)
+        print("Gcost=", np.mean(Gcost), "  Dcost=", np.mean(Dcost))
 
         data = sgan.generate(z_sample)
 
